@@ -1,35 +1,43 @@
-﻿// вариант 2 Алексеев Денис
 <?php
 
 class A
 {
+    protected $x;
 
+    public function solveLinearEquation($a, $b)
+    {
+        if ($a == 0) {
+            throw new Error("Variable a cannot be empty\n\r");
+        }
+
+        return $this->x = [($b * -1) / $a];
+    }
 }
 
-class B extends Line
+class B extends A
 {
-    public function __construct($a)
+    # Function for finding discriminant
+    protected function discriminant($a, $b, $c)
     {
-        $this->a = $a;
+        return $b * $b - 4 * $a * $c;
     }
 
-    protected $a;
-}
-
-class C extends Square
-{
-    public function __construct($a, $b)
+    public function solveQuadEquation($a, $b, $c)
     {
-        $this->b = $b;
-        parent::__construct($a);
+        if ($a == 0) {
+            return $this->solveLinearEquation($b, $c);
+        }
+
+        $d = $this->discriminant($a, $b, $c);
+
+        if ($d == 0) {
+            return $this->x = [(-$b) / 2 * $a];
+        }
+
+        if ($d < 0) {
+            throw new Error("Equation does not exist");
+        }
+
+        return $this->x = [(-$b + sqrt($d)) / (2 * $a), (-$b - sqrt($d)) / (2 * $a)];
     }
-
-    protected $b;
 }
-
-$a1 = new Line();
-$a2 = new Line();
-$a3 = new Line();
-$b4 = new Square($a1);
-$c5 = new C($b4, $a2, $a3);
-var_dump ($c5);
