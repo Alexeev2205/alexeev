@@ -20,7 +20,7 @@ class Square extends Line implements EquationInterface
             return array($this->$X);
         }
         if($D<0)
-        throw new \Error('Корней нет!');
+        throw new AlexeevException('Корней нет!');
 
     }
     protected function searchD($a, $b, $c){

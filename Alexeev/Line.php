@@ -8,7 +8,7 @@ class Line
     public function line($a, $b)
     {
         if($a == 0) {
-            throw new \Error('Не существует!');
+            throw new AlexeevException('Не существует!');
         }
         return $this->X = array(-($b/$a));
     }

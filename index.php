@@ -4,6 +4,7 @@ require "core/EquationInterface.php";
 require "core/LogAbstract.php";
 require "core/LogInterface.php";
 
+require "Alexeev/AlexeevException";
 require "Alexeev/AlexeevLog.php";
 require "Alexeev/Line.php";
 require "Alexeev/Square.php";
@@ -11,6 +12,7 @@ require "Alexeev/Square.php";
 
 use Alexeev\AlexeevLog;
 use Alexeev\Square;
+use Alexeev\AlexeevException;
 
 echo "Enter 3 parameters: " .PHP_EOL;
 $a = readline("a = ");
@@ -28,7 +30,9 @@ try
         AlexeevLog::log($el);
     }
 }
-catch (Error $e)
+catch (AlexeevException $e)
 {
     AlexeevLog::log($e->getMessage() . PHP_EOL);
 }
+
+AlexeevLog::write();
