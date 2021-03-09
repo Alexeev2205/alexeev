@@ -1,43 +1,34 @@
 <?php
 
-class A
+require "core/EquationInterface.php";
+require "core/LogAbstract.php";
+require "core/LogInterface.php";
+
+require "Alexeev/AlexeevLog.php";
+require "Alexeev/Line.php";
+require "Alexeev/Square.php";
+//readLine @Подсказка@
+
+use Alexeev\AlexeevLog;
+use Alexeev\Square;
+
+echo "Enter 3 parameters: " .PHP_EOL;
+$a = readline("a = ");
+$b = readline("b = ");
+$c = readline("c = ");
+
+AlexeevLog::log("The equation: " . $a . "X^2 + " . $b . "X + " . $c . " = 0" . PHP_EOL);
+
+try
 {
-    protected $x;
-
-    public function solveLinearEquation($a, $b)
+   $Square = new Square();
+    $res = $Square->solve($a, $b, $c);
+    foreach ($res as $el)
     {
-        if ($a == 0) {
-            throw new Error("Variable a cannot be empty\n\r");
-        }
-
-        return $this->x = [($b * -1) / $a];
+        AlexeevLog::log($el);
     }
 }
-
-class B extends A
+catch (Error $e)
 {
-    # Function for finding discriminant
-    protected function discriminant($a, $b, $c)
-    {
-        return $b * $b - 4 * $a * $c;
-    }
-
-    public function solveQuadEquation($a, $b, $c)
-    {
-        if ($a == 0) {
-            return $this->solveLinearEquation($b, $c);
-        }
-
-        $d = $this->discriminant($a, $b, $c);
-
-        if ($d == 0) {
-            return $this->x = [(-$b) / 2 * $a];
-        }
-
-        if ($d < 0) {
-            throw new Error("Equation does not exist");
-        }
-
-        return $this->x = [(-$b + sqrt($d)) / (2 * $a), (-$b - sqrt($d)) / (2 * $a)];
-    }
+    AlexeevLog::log($e->getMessage() . PHP_EOL);
 }
