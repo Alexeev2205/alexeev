@@ -1,0 +1,28 @@
+{
+    "name": "alexeev2205/alexeev",
+    "type": "project",
+    "license": "MIT",
+    "description": "",
+    "authors": [
+        {
+            "name": "Denis Alexeev",
+            "email": "bigden2205@gmail.com"
+        }
+    ],
+	"scripts": {
+        "post-install-cmd": "git symbolic-ref --short -q HEAD > version"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/Alexeev2205/alexeev-lib.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/rok9ru/trpo-core.git"
+        }
+    ],
+    "require": {
+        "alexeev2205/alexeev-lib": "^1.2"
+    }
+}

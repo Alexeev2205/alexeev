@@ -1,13 +1,7 @@
-<?php
++<?php
 
-require "core/EquationInterface.php";
-require "core/LogAbstract.php";
-require "core/LogInterface.php";
+require __DIR__ . "/vendor/autoload.php";
 
-require "Alexeev/AlexeevException.php";
-require "Alexeev/AlexeevLog.php";
-require "Alexeev/Line.php";
-require "Alexeev/Square.php";
 //readLine @Подсказка@
 
 use Alexeev\AlexeevLog;
@@ -27,6 +21,13 @@ try
 {
    $Square = new Square();
     $res = $Square->solve($a, $b, $c);
+    if ($a == 0) {
+        AlexeevLog::log("It is a linear equation.");
+    } else {
+        AlexeevLog::log("It is a quad equation.");
+    }
+
+    AlexeevLog::log("Equation roots: ");
     foreach ($res as $el)
     {
         AlexeevLog::log($el);
