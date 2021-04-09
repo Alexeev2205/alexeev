@@ -23,6 +23,6 @@
         }
     ],
     "require": {
-        "alexeev2205/alexeev-lib": "^1.2"
+        "alexeev2205/alexeev-lib": "^1.3"
     }
 }

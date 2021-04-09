@@ -4,24 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c99658df13e83cef5f49cab813120e38",
+    "content-hash": "b5f7a69a10c441c08fbda3c16a55c15e",
     "packages": [
         {
             "name": "alexeev2205/alexeev-lib",
-            "version": "1.2",
+            "version": "1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Alexeev2205/alexeev-lib.git",
-                "reference": "8cbe3545bb76e81a7d33fcc70bf58cb3af82c70b"
+                "reference": "e52fd82b3a48460a07d6e7c91398f4fbd05eb206"
             },
             "require": {
                 "rok9ru/trpo-core": "^2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Alexeev\\": "src"
-                }
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "scripts": {
+                "test": [
+                    "./vendor/bin/phpunit test"
+                ]
             },
             "license": [
                 "MIT"
@@ -32,7 +43,7 @@
                     "email": "bigden2205@gmail.com"
                 }
             ],
-            "time": "2021-04-09T09:05:47+00:00"
+            "time": "2021-04-09T20:37:17+00:00"
         },
         {
             "name": "rok9ru/trpo-core",
